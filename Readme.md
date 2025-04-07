@@ -161,12 +161,13 @@ SET external_threads TO 1;
 ```
 
 Run the following commands in the DuckDB CLI:
+Verify CA Certificate Path.
 
 ```sql
 .timer on
 INSTALL httpfs;
 LOAD httpfs;
-SET ca_cert_file = './certs/nginx.crt';
+SET ca_cert_file = './certs/ca.crt';
 SET enable_server_cert_verification = true;
 SELECT * FROM read_parquet('https://localhost/data.parquet');
 ```
